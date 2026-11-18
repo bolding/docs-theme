@@ -1,6 +1,7 @@
 /* docs-theme: the Bolding & Bruggeman presentation style (bb_style.js of the B&B template) on the
    web -- neutral white/grey, the logo colours as accents, Calibri. Shared by nesting-docs,
-   config-docs and ocean-docs (a submodule at theme/ in each). */
+   config-docs, ocean-docs and oceanicu_3d (a submodule in each). Dark mode follows the system
+   setting: the same tokens, redefined below; figures keep their white plate (--plate). */
 :root {
   --ink: #262626;        /* dk1 */
   --head: #252E37;       /* dk2: titles */
@@ -14,6 +15,7 @@
   --grey: #7F7F7F;       /* accent6 */
   --rule: #DADADA;
   --code: #F6F7F8;
+  --quote: #F3FAFC;      /* blockquote background */
   --font: Calibri, Carlito, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   --mono: "JetBrains Mono", Consolas, "DejaVu Sans Mono", monospace;
   --wide: 76rem;
@@ -25,6 +27,31 @@
   --ok: #2C7A3F;
   --plate: #FFFFFF;
   --measure: 72ch;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #E1E5E8;
+    --head: #F2F4F5;
+    --paper: #14191E;
+    --paper-2: #1D242B;
+    --teal: #4DB6C2;      /* accent1, lightened for a dark background */
+    --blue: #5CB8E6;
+    --cyan: #19B3D1;
+    --navy: #93BEDD;
+    --mist: #3D7480;
+    --grey: #9AA3AA;
+    --rule: #333D46;
+    --code: #10151A;
+    --quote: #17262C;
+    --ink-2: #B4BCC2;
+    --magenta: #E57AB3;
+    --ok: #63BF7B;
+    --plate: #FFFFFF;     /* figures with a white background stay on white */
+    color-scheme: dark;
+  }
+  /* the logos have teal lettering on a transparent background: put them on a light plate */
+  .brand img, .footin img { background: #FFFFFF; border-radius: 4px; padding: 3px 6px; box-sizing: content-box; }
 }
 * { box-sizing: border-box; }
 html { scroll-padding-top: 5rem; }
@@ -68,7 +95,7 @@ img { max-width: 100%; height: auto; }
 .doc h3 { font-size: 1.25rem; color: var(--teal); margin: 1.6rem 0 0.4rem; }
 .doc h4 { font-size: 1.08rem; color: var(--head); margin: 1.3rem 0 0.3rem; }
 .doc h2:first-child, .doc h1 + h2 { margin-top: 0; }
-.doc blockquote { margin: 1rem 0; padding: 0.6rem 1rem; border-left: 4px solid var(--cyan); background: #F3FAFC; }
+.doc blockquote { margin: 1rem 0; padding: 0.6rem 1rem; border-left: 4px solid var(--cyan); background: var(--quote); }
 .doc blockquote p { margin: 0.3rem 0; }
 .doc hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
 .doc table { border-collapse: collapse; margin: 1rem 0; font-size: 0.97rem; display: block; overflow-x: auto; max-width: 100%; }
@@ -79,6 +106,10 @@ img { max-width: 100%; height: auto; }
 .doc pre code { background: none; padding: 0; font-size: 0.86rem; }
 .doc .codehilite { margin: 1rem 0; }
 .doc .codehilite pre { margin: 0; }
+.doc details { margin: 0.8rem 0; border: 1px solid var(--rule); border-radius: 4px; padding: 0.4rem 0.8rem; }
+.doc details[open] { padding-bottom: 0.8rem; }
+.doc summary { cursor: pointer; font-weight: 600; color: var(--head); }
+.doc details > summary + * { margin-top: 0.6rem; }
 .doc .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; }
 
 /* overview cards */
