@@ -81,7 +81,8 @@
 
 /* the light/dark button (mode.js) at the end of the top bar */
 .bb-mode { font: inherit; font-size: 1.05rem; line-height: 1; color: var(--head); background: transparent;
-  border: 1px solid var(--rule); border-radius: 4px; padding: 0.3rem 0.5rem; cursor: pointer; }
+  border: 1px solid var(--rule); border-radius: 4px; padding: 0.2rem 0.45rem; cursor: pointer;
+  align-self: center; margin-left: 0.3rem; }
 .bb-mode:hover { border-color: var(--teal); color: var(--teal); }
 * { box-sizing: border-box; }
 html { scroll-padding-top: 5rem; }

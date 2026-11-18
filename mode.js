@@ -1,7 +1,7 @@
 /* Light/dark mode. Loaded in <head> (not deferred), so a reader's earlier choice applies before the
    page is drawn: it sets data-theme="light" or "dark" on <html>, which style.css and code.css follow;
-   without a choice the system setting (prefers-color-scheme) decides. Adds the button at the end of
-   the top bar; the choice is kept per browser (localStorage). */
+   without a choice the system setting (prefers-color-scheme) decides. Adds the button after the last
+   menu item of the top bar; the choice is kept per browser (localStorage). */
 (function () {
   var KEY = "bb-theme", root = document.documentElement;
   try {
@@ -33,7 +33,7 @@
       label();
     });
     label();
-    bar.appendChild(b);
+    (bar.querySelector("nav") || bar).appendChild(b);       // after the last menu item
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", addButton);
